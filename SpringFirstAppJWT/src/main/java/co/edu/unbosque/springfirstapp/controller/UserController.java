@@ -25,9 +25,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controlador REST para la gestión de usuarios. Proporciona endpoints para
@@ -136,15 +133,7 @@ public class UserController {
 		if (role != null) {
 			newUser.setRole(role);
 		}
-		int status = userServ.create(newUser);
-
-		if (status == 0) {
-			return new ResponseEntity<>("Usuario creado exitosamente", HttpStatus.CREATED);
-		} else {
-			return new ResponseEntity<>("Error al crear el usuario, posiblemente el nombre de usuario ya está en uso",
-					HttpStatus.NOT_ACCEPTABLE);
-		}
-	}
+			}
 
 	/**
 	 * Obtiene todos los usuarios. Accesible para usuarios con rol USER o ADMIN.
